@@ -455,6 +455,7 @@ a {
         width: 100%;
         margin: 0;
         padding: 0;
+        border-top: 1px solid #ddd;
         z-index: 2;
     }
 
@@ -508,12 +509,18 @@ a {
     }
 
     .hamburger:checked + .hamburger__label::before {
-        content: none;
+        width: 15px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: silver;
     }
 
     .hamburger:checked + .hamburger__label::after {
+        width: 15px;
         opacity: 1;
         visibility: visible;
+        background: silver;
     }
 
     .hamburger:checked ~ .nav-links::before {
@@ -567,12 +574,13 @@ a {
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -2px;
-        transform: translate(-50%, -50%) rotate(45deg);
-        content: "✖";
+        transform: translate(-50%, -50%) rotate(90deg);
+        background: #eb3b78;
+        content: '';
+        height: 4px;
         opacity: 0;
         visibility: hidden;
-        color: silver;
+        width: 100%;
         transition: all .2s;
     }
 
