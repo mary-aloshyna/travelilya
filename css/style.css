@@ -304,6 +304,10 @@ p {
     justify-content: space-between;
 }
 
+.gallery__row--mobile {
+    display: none!important;
+}
+
 .gallery__row:first-child {
     margin-bottom: 40px;
 }
@@ -683,18 +687,12 @@ p {
         margin-bottom: 0;
     }
 
-    .gallery__row:first-child {
+    .gallery__row {
         display: none;
     }
 
-    .gallery__row {
-        flex-flow: column;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    .photo-wrapper {
-        margin-bottom: 10px;
+    .gallery__row--mobile {
+        display: block!important;
     }
 
     #contact {
