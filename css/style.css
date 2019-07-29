@@ -19,6 +19,10 @@ a {
     height: 80px;
 }
 
+.navigation--mobile {
+    display: none;
+}
+
 .navigation {
     width: 100%;
     height: 100%;
@@ -96,7 +100,7 @@ a {
 }
 
 .subtitle {
-    padding: 24px 0 38px 0;
+    padding: 24px 20px 38px;
     font-size: 72px;
     line-height: 1.17;
     letter-spacing: .5px;
@@ -117,7 +121,9 @@ a {
 .arrow {
     position: absolute;
     bottom: 10px;
-    left: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
     transform: translateX(-50%);
     animation: arrow 2s infinite ease-in;
 }
@@ -194,6 +200,10 @@ a {
     width: 100%;
     padding: 0 250px;
     box-sizing: border-box;
+}
+
+.image-wrapper--mobile-visible {
+    display: none;
 }
 
 .content__text {
@@ -423,4 +433,276 @@ a {
 .soc-media__item .fab {
     margin-top: 20px;
     transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1090px) {
+    .header {
+        position: relative;
+        height: 50px;
+    }
+
+    .navigation--mobile {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .nav-links {
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+    }
+
+    .nav-links::before {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 50px);
+        top: 0;
+        left: 0;
+        content: '';
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .navigation--mobile li {
+        border-bottom: 1px solid #ddd;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all .3s;
+    }
+
+    .navigation--mobile li a {
+        background: #fff;
+        color: #404040;
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 12px 20px;
+        text-align: left;
+        width: 100%;
+        transition: all .3s;
+    }
+
+    .hamburger {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .hamburger:checked + label {
+        border: 4px solid silver;
+        border-radius: 50%;
+        height: 28px;
+        top: 50%;
+        left: 18px;
+        width: 28px;
+        transform: translateY(-50%) rotate(-135deg);
+    }
+
+    .hamburger:checked + .hamburger__label::before {
+        content: none;
+    }
+
+    .hamburger:checked + .hamburger__label::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .hamburger:checked ~ .nav-links::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .hamburger:checked ~ .nav-links li {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .hamburger:checked ~ .nav-links li:nth-child(2) {
+        transition-delay: .1s;
+    }
+
+    .hamburger:checked ~ .nav-links li:nth-child(3) {
+        transition-delay: .2s;
+    }
+
+    .hamburger__label {
+        background: none transparent;
+        border: 4px solid #eb3b78;
+        border-left: 0 solid transparent;
+        border-right: 0 solid transparent;
+        cursor: pointer;
+        display: block;
+        height: 14px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        width: 30px;
+        transition: all .2s;
+    }
+
+    .hamburger__label::before {
+        background: #eb3b78;
+        content: '';
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        transition: all .2s;
+    }
+
+    .hamburger__label::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -2px;
+        transform: translate(-50%, -50%) rotate(45deg);
+        content: "✖";
+        opacity: 0;
+        visibility: hidden;
+        color: silver;
+        transition: all .2s;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .banner {
+        height: calc(100vh - 50px);
+    }
+
+    .title {
+        padding-bottom: 20px;
+        padding-top: 50px;
+    }
+
+    .subtitle {
+        padding: 24px 10px;
+        font-size: 32px;
+    }
+
+    .image-wrapper--mobile-visible {
+        display: block;
+        padding: 0 20px;
+        margin: 50px auto;
+    }
+
+    .image-wrapper--mobile-visible img {
+        width: 100%;
+    }
+
+    .image-wrapper--mobile-hidden {
+        display: none;
+    }
+
+    .about__title {
+        margin-top: 50px;
+        padding: 0 20px;
+        font-size: 32px;
+    }
+
+    .about__title::after {
+        margin: 30px auto;
+    }
+
+    .about__description {
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    .about__description::after {
+        margin-top: 50px;
+    }
+
+    .about__content {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        margin-top: 50px;
+    }
+
+    .content__text {
+        text-align: center;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .content__text:first-child {
+        padding-right: 0;
+    }
+
+    #services {
+        padding-top: 50px;
+        margin-bottom: 100px;
+    }
+
+    .services-and-price__description {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .services-and-price {
+        margin-bottom: 50px;
+    }
+
+    .services__list {
+        padding-right: 20px;
+        padding-left: 70px;
+    }
+
+    .services__text {
+        font-size: 16px;
+    }
+
+    #gallery {
+        margin-bottom: 0;
+    }
+
+    .gallery__row:first-child {
+        display: none;
+    }
+
+    .gallery__row {
+        flex-flow: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .photo-wrapper {
+        margin-bottom: 10px;
+    }
+
+    #contact {
+        padding-top: 50px;
+    }
+
+    .contact__text {
+        padding: 0 20px;
+        font-size: 18px;
+    }
+
+    .form__input,
+    .form__textarea,
+    .form__button {
+        width: 100%;
+    }
+
+    .soc-media {
+        width: 100%;
+        text-align: center;
+    }
 }
