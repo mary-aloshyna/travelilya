@@ -8,11 +8,14 @@
     <title>TraveLilya</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="./js/toastr/src/snackbar.css" rel="stylesheet">
+    <link href="./js/toastr/themes-css/material.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/fe0e41f39c.js"></script>
+    <script src="./js/toastr/src/snackbar.js"></script>
     <script src="./js/main.js"></script>
 </head>
 <body>
@@ -40,7 +43,7 @@
             <div class="content-wrapper">
                 <h1 class="title">TRAVELILYA</h1>
                 <h2 class="subtitle">Ваш личный travel - консультант</h2>
-                <p class="description">Здесь создаются приключения.</p>
+                <p class="description">Здесь создаются приключения</p>
             </div>
             <div class="arrow">
                 <a href="#about" class="arrow-link"><i class="fas fa-chevron-down"></i></a>
@@ -177,7 +180,7 @@
             <h4 class="contact__title">Хотите оставить заявку или получить бесплатную консультацию?</h4>
             <p class="contact__text">
                 Подписывайтесь на мой <span class="highlight"><a href="https://www.instagram.com/lilymalakhova/">Instagram</a></span>,
-                пишите в личные сообщения или заполните форму ниже<br>
+                пишите в личные сообщения, отправьте письмо на почту <b>malakhova.liliya.1999@gmail.com</b> или заполните форму ниже<br>
                 Я оперативно отвечу, и мы начнем создавать ваше приключение.
                 <br><br>
                 До связи!
@@ -185,10 +188,10 @@
         </div>
         <div class="contact__form">
             <div class="contact__form--content">
-                <form action="">
-                    <input type="text" placeholder="Имя" class="form__input">
-                    <input type="text" placeholder="Email" class="form__input">
-                    <textarea name="" id="" cols="30" rows="10" class="form__textarea"></textarea>
+                <form action="mailer/send_form_email.php" method="post" id="contact__form">
+                    <input type="text" placeholder="Имя" name="name" class="form__input">
+                    <input type="text" placeholder="Email" name="email" class="form__input">
+                    <textarea placeholder="Сообщение" name="letter" cols="30" rows="10" class="form__textarea"></textarea>
                     <input type="submit" value="Отправить" class="form__button">
                 </form>
             </div>
